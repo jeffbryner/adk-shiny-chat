@@ -2,7 +2,7 @@
 
 Google has a great thing in their agent development kit (ADK). Easy to create agents, give them tools, sessions, memory, etc. 
 
-They have a great thing as well in the "adk web" simple web interface to use agents. Problem is they don't recommend it for use beyond development. 
+They have a great thing as well in the "adk web" simple web interface to use agents. Problem is they don't recommend it for use beyond development. It also includes evaluation sets, builders, etc that you don't want to accidentally deploy.
 
 So there's a need for a chat UI for ADK agents. 
 
