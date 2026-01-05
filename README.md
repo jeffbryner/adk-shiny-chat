@@ -25,3 +25,17 @@ Having a starlette app allows you to run via docker (cloud run, lambda, etc) via
 ```
 ENTRYPOINT ["uvicorn", "shiny_chat:app", "--port", "8080", "--host", "0.0.0.0","--no-access-log","--log-level","debug"]
 ```
+
+## MAKE IT GO
+You'll obviously need a Google Cloud Project with vertex enabled and working. 
+
+Replace the environmet variables to match your world
+
+```
+# set environment variables for Google
+os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "1"
+os.environ["GOOGLE_CLOUD_PROJECT"] = "your-gcp-project-id"
+os.environ["GOOGLE_CLOUD_LOCATION"] = "us-central1"
+```
+
+If ```adk web``` works, then this should work as well and have a nice chat with you about ice cream. 
