@@ -39,3 +39,5 @@ os.environ["GOOGLE_CLOUD_LOCATION"] = "us-central1"
 ```
 
 If ```adk web``` works, then this should work as well and have a nice chat with you about ice cream. 
+
+![ice cream agent conversation](ice_cream_agent.png)
