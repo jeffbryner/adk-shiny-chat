@@ -1,6 +1,7 @@
 from google.adk.agents.llm_agent import Agent
 from google.adk.sessions import InMemorySessionService, Session
 from google.adk.memory import InMemoryMemoryService
+from .firestore_session_service import FirestoreSessionService
 
 
 from google.adk.runners import Runner
@@ -12,8 +13,9 @@ logger = logging.getLogger(__name__)
 
 # set environment variables for Google
 os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "1"
-os.environ["GOOGLE_CLOUD_PROJECT"] = "your-gcp-project-id"
+# os.environ["GOOGLE_CLOUD_PROJECT"] = "your-gcp-project-id"  # Set your GCP project ID
 os.environ["GOOGLE_CLOUD_LOCATION"] = "us-central1"
+
 
 ice_cream_agent = Agent(
     model="gemini-2.5-flash",
@@ -30,6 +32,6 @@ app = App(
 
 runner = Runner(
     app=app,
-    session_service=InMemorySessionService(),
+    session_service=FirestoreSessionService(),
     memory_service=InMemoryMemoryService(),
 )
