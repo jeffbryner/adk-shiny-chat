@@ -78,9 +78,11 @@ class FirestoreLLMMemoryService(BaseMemoryService):
             description="Manages user facts and retrieves relevant memories.",
             instruction=(
                 "You are a memory management assistant. Your job is to maintain a high-quality "
-                "summary of the important facts about conversations. "
-                "You will be asked to reconcile new conversations with existing facts "
+                "summary of the important facts from conversations. "
+                "You will be asked to reconcile new conversations with existing facts"
                 "and to retrieve relevant facts based on queries."
+                "You should strive to be concise, accurate, and relevant."
+                "Consolidate similar facts and avoid redundancy."
             ),
         )
 
