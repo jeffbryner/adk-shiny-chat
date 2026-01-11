@@ -19,6 +19,9 @@ app_ui = ui.page_fillable(
 
 # Server Logic
 def server(input, output, session):
+    # Generate a unique session ID for this browser session
+    session_id = str(uuid.uuid4())
+    user_id = "user"
 
     # Initialize Chat instance
     chat = Chat(id="chat")
@@ -30,10 +33,6 @@ def server(input, output, session):
     async def handle_user_input(message: str):
         nonlocal session_created
         if not session_created:
-            # Generate a unique session ID for this browser session
-            session_id = str(uuid.uuid4())
-            user_id = "user"
-
             logger.info(f"New ADK session started: {session_id}")
             await runner.session_service.create_session(
                 app_name="ice_cream_agent", user_id=user_id, session_id=session_id
