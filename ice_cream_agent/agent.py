@@ -5,6 +5,7 @@ from .firestore_session_service import FirestoreSessionService
 from .firestore_llm_memory_service import FirestoreLLMMemoryService
 from google.adk.agents.callback_context import CallbackContext
 from google.adk.tools.preload_memory_tool import PreloadMemoryTool
+from google.adk.tools import function_tool
 
 
 from google.adk.runners import Runner
@@ -98,6 +99,8 @@ async def recall_memory(query: str) -> str:
     except Exception as e:
         return f"Error searching memory: {str(e)}"
 
+
+recall_memory_tool = function_tool.FunctionTool(func=recall_memory)
 
 ice_cream_agent = Agent(
     model="gemini-2.5-flash",
