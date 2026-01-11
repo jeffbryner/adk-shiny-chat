@@ -33,15 +33,15 @@ def chat_mod_server(input, output, session, messages):
     chat = ui.Chat(id="chat", messages=messages)
     # Track if session is created in ADK
     session_created = False
+    # Generate a unique session ID for this browser session
+    session_id = str(uuid.uuid4())
+    user_id = "user"
 
     @chat.on_user_submit
     async def _():
         new_message = chat.user_input()
         nonlocal session_created
         if not session_created:
-            # Generate a unique session ID for this browser session
-            session_id = str(uuid.uuid4())
-            user_id = "user"
             logger.info(f"New ADK session started: {session_id}")
             await runner.session_service.create_session(
                 app_name="ice_cream_agent", user_id=user_id, session_id=session_id
